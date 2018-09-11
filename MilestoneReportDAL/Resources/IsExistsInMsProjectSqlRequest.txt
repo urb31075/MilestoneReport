@@ -1,0 +1,26 @@
+select distinct dog.[TEXT_VALUE] as dog,
+                                           isnull(dc.[TEXT_VALUE], 0) as dc,
+                                           proj.[PROJ_CREATION_DATE] as creat_date,
+                                           publ.[Статус проекта] as status,
+	                                       (SELECT count(*)
+		                                    FROM [GPIProjectServer_Draft].[dbo].[MSP_TASK_CUSTOM_FIELD_VALUES] works
+		                                    where [MD_PROP_ID] in ('188776577')
+		                                      and isnull([TEXT_VALUE], '') = 'Работа'
+		                                      and dog.[PROJ_UID] =  works.[PROJ_UID]) as works
+                                    from [GPIProjectServer_Draft].[dbo].[MSP_PROJECTS] proj
+	                                    left outer join
+	                                    (select *
+                                            from [GPIProjectServer_Draft].[dbo].[MSP_PROJ_CUSTOM_FIELD_VALUES]
+                                            where [MD_PROP_ID] = '190873606'
+                                            ) dog
+                                        on proj.[PROJ_UID] = dog.[PROJ_UID]
+                                        left outer join
+                                            (select *
+                                            from [GPIProjectServer_Draft].[dbo].[MSP_PROJ_CUSTOM_FIELD_VALUES]
+                                            where [MD_PROP_ID] = '190873607'
+                                            ) dc
+                                        on dog.[PROJ_UID] = dc.[PROJ_UID]
+                                        left outer join [MSP_EpmProject_UserView] publ
+                                        on dog.[PROJ_UID] = publ.ProjectUID
+                                    where proj.[PROJ_CREATION_DATE] is not null
+                                      and dog.[TEXT_VALUE] = isnull(@dog, dog.[TEXT_VALUE])

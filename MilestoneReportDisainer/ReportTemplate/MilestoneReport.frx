@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="09/07/2017 11:40:10" ReportInfo.Modified="09/13/2017 11:05:04" ReportInfo.CreatorVersion="2017.2.22.0">
+  <Dictionary>
+    <BusinessObjectDataSource Name="CommonInfo" ReferenceName="CommonInfo" DataType="System.Collections.Generic.List`1[[MilestoneReportDAL.MilestoneReportCommonInfo, MilestoneReportDAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]" Enabled="true">
+      <Column Name="ReportName" DataType="System.String"/>
+      <Column Name="GenerateDate" DataType="System.DateTime"/>
+    </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="Data" ReferenceName="Data" DataType="System.Collections.Generic.List`1[[MilestoneReportDAL.MilestoneReportData, MilestoneReportDAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]" Enabled="true">
+      <Column Name="Number" DataType="System.Int32"/>
+      <Column Name="Prd" DataType="System.String"/>
+      <Column Name="Dog" DataType="System.String"/>
+      <Column Name="Dc" DataType="System.String"/>
+      <Column Name="Fio" DataType="System.String"/>
+      <Column Name="Ct" DataType="System.String"/>
+      <Column Name="Npr" DataType="System.String"/>
+      <Column Name="KpStart" DataType="System.String"/>
+      <Column Name="KpFinish" DataType="System.String"/>
+      <Column Name="PpStart" DataType="System.String"/>
+      <Column Name="PpFinish" DataType="System.String"/>
+      <Column Name="DokPrim" DataType="System.String"/>
+      <Column Name="GrafStatus" DataType="System.String"/>
+      <Column Name="VpkStatus" DataType="System.String"/>
+      <Column Name="MsProjectInfo" DataType="MilestoneReportDAL.MsProjectInfo, MilestoneReportDAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Column Name="Dog" DataType="System.String"/>
+        <Column Name="Dc" DataType="System.String"/>
+        <Column Name="CreatDate" DataType="System.String"/>
+        <Column Name="Status" DataType="System.String"/>
+        <Column Name="Works" DataType="System.String"/>
+        <Column Name="IsExists" DataType="System.String"/>
+      </Column>
+      <BusinessObjectDataSource Name="BusinessObjectDataSource3" Alias="MilestoneCategiriesInfoList" DataType="System.Collections.Generic.List`1[[MilestoneReportDAL.MilestoneCategoriesInfo, MilestoneReportDAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]" PropName="MilestoneCategiriesInfoList" Enabled="true">
+        <Column Name="CatId" DataType="System.Int32"/>
+        <Column Name="CatName" DataType="System.String"/>
+        <Column Name="CatOrder" DataType="System.Int32"/>
+        <BusinessObjectDataSource Name="BusinessObjectDataSource4" Alias="MilestonePointInfoList" DataType="System.Collections.Generic.List`1[[MilestoneReportDAL.MilestonePointInfo, MilestoneReportDAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]" PropName="MilestonePointInfoList" Enabled="true">
+          <Column Name="MilestoneId" DataType="System.Int32"/>
+          <Column Name="MilestoneName" DataType="System.String"/>
+          <Column Name="MilestoneIdMsp" DataType="System.String"/>
+          <Column Name="MilestoneOrder" DataType="System.Int32"/>
+          <BusinessObjectDataSource Name="MilestoneDateInfoList" DataType="System.Collections.Generic.List`1[[MilestoneReportDAL.MilestoneDateInfo, MilestoneReportDAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]" Enabled="true">
+            <Column Name="TaskStartDate" DataType="System.String"/>
+            <Column Name="TaskFinishDate" DataType="System.String"/>
+            <Column Name="ControlPointType" DataType="System.String"/>
+          </BusinessObjectDataSource>
+          <Column Name="ProjectFactData" DataType="System.String"/>
+          <Column Name="ProjectUserName" DataType="System.String"/>
+        </BusinessObjectDataSource>
+      </BusinessObjectDataSource>
+    </BusinessObjectDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="85.05">
+      <TextObject Name="Text1" Left="160.65" Top="9.45" Width="878.85" Height="56.7" Border.Lines="All" Text="[CommonInfo.ReportName]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text2" Width="151.2" Height="18.9" Text="[CommonInfo.GenerateDate]" HorzAlign="Center" Font="Arial, 8pt"/>
+    </ReportTitleBand>
+    <DataBand Name="ProjectData" Top="89.22" Width="1047.06" Height="56.7" CanGrow="true" CanShrink="true" DataSource="Data">
+      <TextObject Name="Text3" Left="37.8" Top="37.8" Width="47.25" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Data.Prd]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text4" Left="85.05" Top="37.8" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Data.Dog] / [Data.Dc]" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text5" Left="160.65" Top="37.8" Width="37.8" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Data.Ct]" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text6" Left="198.45" Top="37.8" Width="472.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Data.Npr]" Font="Arial, 9pt"/>
+      <TextObject Name="Text7" Left="670.95" Top="37.8" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Data.Fio]" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text8" Left="765.45" Top="37.8" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Data.PpStart]" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text9" Left="859.95" Top="37.8" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Data.PpFinish]" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text10" Left="954.45" Top="37.8" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Data.MsProjectInfo.IsExists]" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text27" Top="37.8" Width="37.8" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Data.Number]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text14" Left="198.45" Top="9.45" Width="472.5" Height="28.35" Border.Lines="All" Fill.Color="LightGray" CanBreak="false" Text="Наименование" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text26" Top="9.45" Width="37.8" Height="28.35" Border.Lines="All" Fill.Color="LightGray" CanBreak="false" HorzAlign="Center"/>
+      <TextObject Name="Text11" Left="37.8" Top="9.45" Width="47.25" Height="28.35" Border.Lines="All" Fill.Color="LightGray" CanBreak="false" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text12" Left="85.05" Top="9.45" Width="75.6" Height="28.35" Border.Lines="All" Fill.Color="LightGray" CanBreak="false" Text="№" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text13" Left="160.65" Top="9.45" Width="37.8" Height="28.35" Border.Lines="All" Fill.Color="LightGray" CanBreak="false" Text="Ст." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text15" Left="670.95" Top="9.45" Width="94.5" Height="28.35" Border.Lines="All" Fill.Color="LightGray" CanBreak="false" Text="Гип" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text16" Left="765.45" Top="9.45" Width="94.5" Height="28.35" Border.Lines="All" Fill.Color="LightGray" CanBreak="false" Text="Дата1" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text17" Left="859.95" Top="9.45" Width="94.5" Height="28.35" Border.Lines="All" Fill.Color="LightGray" CanBreak="false" Text="Дата2" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text18" Left="954.45" Top="9.45" Width="94.5" Height="28.35" Border.Lines="All" Fill.Color="LightGray" CanBreak="false" Text="График в MSProject" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <DataBand Name="CategoriesData" Top="150.08" Width="1047.06" Height="18.9" DataSource="BusinessObjectDataSource3" PrintIfDetailEmpty="true" PrintIfDatasourceEmpty="true">
+        <TextObject Name="Text21" Left="954.45" Width="94.5" Height="18.9" Border.Lines="All" Fill.Color="LightGray" Text="Order: [Data.MilestoneCategiriesInfoList.CatOrder]" HorzAlign="Center"/>
+        <TextObject Name="Text29" Left="18.9" Width="841.05" Height="18.9" Border.Lines="All" Fill.Color="LightGray" Text="[Data.MilestoneCategiriesInfoList.CatName]"/>
+        <TextObject Name="Text19" Left="859.95" Width="94.5" Height="18.9" Border.Lines="All" Fill.Color="LightGray" Text="Id: [Data.MilestoneCategiriesInfoList.CatId]" HorzAlign="Center"/>
+        <DataBand Name="PointData" Top="173.15" Width="1047.06" Height="18.9" CanGrow="true" DataSource="BusinessObjectDataSource4">
+          <TextObject Name="Text22" Left="37.8" Width="283.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Data.MilestoneCategiriesInfoList.MilestonePointInfoList.MilestoneName]"/>
+          <TextObject Name="Text24" Left="954.45" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="Order: [Data.MilestoneCategiriesInfoList.MilestonePointInfoList.MilestoneOrder]" HorzAlign="Center"/>
+          <TextObject Name="Text28" Left="453.6" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Data.MilestoneCategiriesInfoList.MilestonePointInfoList.ProjectFactData]" HorzAlign="Center"/>
+          <TextObject Name="Text20" Left="859.95" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="Id: [Data.MilestoneCategiriesInfoList.MilestonePointInfoList.MilestoneId]" HorzAlign="Center"/>
+          <TextObject Name="Text23" Left="548.1" Width="311.85" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Data.MilestoneCategiriesInfoList.MilestonePointInfoList.MilestoneIdMsp]" HorzAlign="Center"/>
+          <TextObject Name="Text25" Left="321.3" Width="132.3" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Data.MilestoneCategiriesInfoList.MilestonePointInfoList.ProjectUserName]"/>
+          <DataBand Name="DateData" Top="196.22" Width="1047.06" Height="18.9" DataSource="MilestoneDateInfoList">
+            <TextObject Name="Text30" Left="670.95" Width="189" Height="18.9" Border.Lines="All" Text="[Data.MilestoneCategiriesInfoList.MilestonePointInfoList.MilestoneDateInfoList.ControlPointType]" HorzAlign="Center"/>
+            <TextObject Name="Text31" Left="859.95" Width="94.5" Height="18.9" Border.Lines="All" Text="[Data.MilestoneCategiriesInfoList.MilestonePointInfoList.MilestoneDateInfoList.TaskStartDate]" HorzAlign="Center"/>
+            <TextObject Name="Text32" Left="954.45" Width="94.5" Height="18.9" Border.Lines="All" Text="[Data.MilestoneCategiriesInfoList.MilestonePointInfoList.MilestoneDateInfoList.TaskFinishDate]" HorzAlign="Center"/>
+          </DataBand>
+        </DataBand>
+      </DataBand>
+    </DataBand>
+  </ReportPage>
+</Report>

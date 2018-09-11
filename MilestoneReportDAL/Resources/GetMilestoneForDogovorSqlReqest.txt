@@ -1,0 +1,8 @@
+select  mc.ID_MS_CAT, mc.MS_CAT_NAME, mc.MS_CAT_ORD, 
+        mil.ID_MILESTONE, mil.MILESTONE_NAME, mil.ID_MSP, mil.Ord, 
+        prmil.FACT_DATE, prmil.USER_NAME
+from PROJ_MILESTONE prmil
+left join milestone mil on mil.id_milestone = prmil.id_milestone
+left join milestone_category mc on MIL.ID_MS_CAT= MC.ID_MS_CAT
+where ID_PROJ in (select ID_PROJECT from PROJECT where DOGOVOR = :DOGOVOR and DC = :DC)
+order by mc.MS_CAT_ORD, mil.Ord

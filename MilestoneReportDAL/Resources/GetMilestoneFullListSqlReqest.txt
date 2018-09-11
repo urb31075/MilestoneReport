@@ -1,0 +1,5 @@
+select  mc.ID_MS_CAT, mc.MS_CAT_NAME, mc.MS_CAT_ORD, 
+        mil.ID_MILESTONE, mil.MILESTONE_NAME, mil.ID_MSP, mil.Ord
+from milestone mil
+left join milestone_category mc on MIL.ID_MS_CAT= MC.ID_MS_CAT
+order by mc.MS_CAT_ORD, mil.Ord

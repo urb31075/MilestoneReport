@@ -1,0 +1,5 @@
+select [TaskStartDate], [TaskFinishDate], [Тип контрольной точки] 
+from [MSP_EpmTask_UserView]
+where [Тип контрольной точки] = CONVERT(NVARCHAR(MAX), (select [MemberFullValue]
+														from [MSPLT_Типы контрольных точек проекта_UserView] 
+														where [LookupMemberUID] = @ID_MSP))
